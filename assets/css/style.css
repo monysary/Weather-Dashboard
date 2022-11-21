@@ -20,10 +20,25 @@ h1 {
     padding: 6px 24px;
 }
 
-#recent-searches {
-    margin: 1rem;
+.recent-searches,
+.current-weather,
+.forecast {
+    margin: 10px;
 }
 
-#recent-searches > h2 {
+.recent-searches > h2 {
     font-size: 20px;
+}
+
+.row {
+    --bs-gutter-x: 0;
+}
+
+.current-weather-box {
+    box-shadow: 0px 0px 7px -2px black;
+    border-radius: 10px;
+}
+
+.current-weather {
+    padding: 10px;
 }
