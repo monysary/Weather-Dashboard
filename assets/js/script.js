@@ -1,10 +1,18 @@
-// Variables for API call
+// Variables for API fetch
 var APIkey = "59bb2d1c760fcf9313acc25aca14f9ce";
 var cityName = "Los Angeles";
-var iconID = "10d"
 var currentWeatherUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + APIkey + "&units=imperial";
 var forecastUrl = "http://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=" + APIkey + "&units=imperial";
-var weatherIconUrl = "http://openweathermap.org/img/wn/" + iconID + "@2x.png"
+
+// Variables for pulling data from API
+var iconID;
+var weatherIconUrl = "http://openweathermap.org/img/wn/" + iconID + "@2x.png";
+var unixTimestamp
+var dateArr = Date(unixTimestamp).split(" ");
+var day = dateArr[0];
+var month = dateArr[1];
+var date = dateArr[2];
+var year = dateArr[3];
 
 // Fetch current weather data
 fetch(currentWeatherUrl)
@@ -13,10 +21,9 @@ fetch(currentWeatherUrl)
     })
     .then(function(data) {
         console.log(data);
-        console.log(Date(1669072785));
-        console.log(Date(1669072785).split(" "));
-
-        
+        // Fetch current date
+        unixTimestamp = data.dt
+        document.querySelector("#current-date").textContent = day + ", " + month + " " + date + ", " + year
     })
 
 // Fetch 5-day forecast weather data
@@ -25,5 +32,5 @@ fetch(forecastUrl)
     return response.json();
 })
 .then(function(data) {
-    console.log(data);
+    // console.log(data);
 })
