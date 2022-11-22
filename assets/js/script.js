@@ -1,15 +1,16 @@
 // Variables for API fetch
 var APIkey = "59bb2d1c760fcf9313acc25aca14f9ce";
-var cityName = "Los Angeles";
-var currentWeatherUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + APIkey + "&units=imperial";
-var forecastUrl = "http://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=" + APIkey + "&units=imperial";
+var cityName = "Los Angeles"
+var currentWeatherUrl= "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + ",us&appid=" + APIkey + "&units=imperial";
+var forecastUrl= "http://api.openweathermap.org/data/2.5/forecast?q=" + cityName + ",us&appid=" + APIkey + "&units=imperial";
+fetchData()
 
 // Eventlistener for input field when searching city
 document.addEventListener("submit", function(event) {
     event.preventDefault();
     cityName = document.querySelector("#search-field").value
-    currentWeatherUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + APIkey + "&units=imperial";
-    forecastUrl = "http://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=" + APIkey + "&units=imperial";
+    currentWeatherUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + ",us&appid=" + APIkey + "&units=imperial";
+    forecastUrl = "http://api.openweathermap.org/data/2.5/forecast?q=" + cityName + ",us&appid=" + APIkey + "&units=imperial";
     fetchData()
 })
 
