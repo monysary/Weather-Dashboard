@@ -109,6 +109,7 @@ function fetchData() {
         // Fetch forecast weather icon
         var d1IconID = data.list[7].weather[0].icon
         var d1IconUrl = "http://openweathermap.org/img/wn/" + d1IconID + "@2x.png";
+        console.log(d1IconUrl);
         document.querySelector("#day1img").setAttribute("src", d1IconUrl);
         var d2IconID = data.list[15].weather[0].icon
         var d2IconUrl = "http://openweathermap.org/img/wn/" + d2IconID + "@2x.png";

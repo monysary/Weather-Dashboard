@@ -42,6 +42,8 @@ h3 {
 /* Current weather section */
 .current-weather {
     padding: 10px;
+    background: linear-gradient(to bottom, #73bee4 0%,#4472a7 100%);
+    color: white;
 }
 
 .curr-weath-img {
@@ -52,6 +54,11 @@ h3 {
 .forecast-img {
     width: 150px;
     margin: 0 auto;
+}
+
+.card {
+    background: linear-gradient(to bottom, #73bee4 0%,#4472a7 100%);
+    color: white;
 }
 
 /* General styling */
