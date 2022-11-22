@@ -6,7 +6,7 @@ var forecastUrl = "http://api.openweathermap.org/data/2.5/forecast?q=" + cityNam
 
 // Variables for pulling data from API
 var iconID;
-var weatherIconUrl = "http://openweathermap.org/img/wn/" + iconID + "@2x.png";
+var weatherIconUrl;
 var unixTimestamp
 var dateArr = Date(unixTimestamp).split(" ");
 var day = dateArr[0];
@@ -24,6 +24,11 @@ fetch(currentWeatherUrl)
         // Fetch current date
         unixTimestamp = data.dt
         document.querySelector("#current-date").textContent = day + ", " + month + " " + date + ", " + year
+
+        // Fetch current weather icon
+        iconID = data.weather[0].icon
+        weatherIconUrl = "http://openweathermap.org/img/wn/" + iconID + "@2x.png";
+        document.querySelector("#day0img").setAttribute("src", weatherIconUrl)
     })
 
 // Fetch 5-day forecast weather data
