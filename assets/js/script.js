@@ -1,6 +1,6 @@
 // Variables for API fetch
 var APIkey = "59bb2d1c760fcf9313acc25aca14f9ce";
-var cityName = "Los Angeles";
+var cityName = "fountain valley";
 var currentWeatherUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + APIkey + "&units=imperial";
 var forecastUrl = "http://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=" + APIkey + "&units=imperial";
 
@@ -42,8 +42,6 @@ fetch(forecastUrl)
     return response.json();
 })
 .then(function(data) {
-    console.log(data);
-
     // Fetch forecast date
     var d1Date = data.list[4].dt_txt.split(" ")[0];
     document.querySelector("#day1forecast").textContent = d1Date
@@ -73,4 +71,39 @@ fetch(forecastUrl)
     var d5IconUrl = "http://openweathermap.org/img/wn/" + d5IconID + "@2x.png";
     document.querySelector("#day5img").setAttribute("src", d5IconUrl);
 
+    // Fetch forecast temperature data
+    var d1temp = data.list[4].main.temp
+    document.querySelector("#day1temp").textContent = d1temp
+    var d2temp = data.list[12].main.temp
+    document.querySelector("#day2temp").textContent = d2temp
+    var d3temp = data.list[20].main.temp
+    document.querySelector("#day3temp").textContent = d3temp
+    var d4temp = data.list[28].main.temp
+    document.querySelector("#day4temp").textContent = d4temp
+    var d5temp = data.list[36].main.temp
+    document.querySelector("#day5temp").textContent = d5temp
+
+    // Fetch forecast humidity data
+    var d1humid = data.list[4].main.humidity
+    document.querySelector("#day1humid").textContent = d1humid
+    var d2humid = data.list[12].main.humidity
+    document.querySelector("#day2humid").textContent = d2humid
+    var d3humid = data.list[20].main.humidity
+    document.querySelector("#day3humid").textContent = d3humid
+    var d4humid = data.list[28].main.humidity
+    document.querySelector("#day4humid").textContent = d4humid
+    var d5humid = data.list[36].main.humidity
+    document.querySelector("#day5humid").textContent = d5humid
+
+    // Fetch forecast wind data
+    var d1wind = data.list[4].wind.speed
+    document.querySelector("#day1wind").textContent = d1wind
+    var d2wind = data.list[12].wind.speed
+    document.querySelector("#day2wind").textContent = d2wind
+    var d3wind = data.list[20].wind.speed
+    document.querySelector("#day3wind").textContent = d3wind
+    var d4wind = data.list[28].wind.speed
+    document.querySelector("#day4wind").textContent = d4wind
+    var d5wind = data.list[36].wind.speed
+    document.querySelector("#day5wind").textContent = d5wind
 })
