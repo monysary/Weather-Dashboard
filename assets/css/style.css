@@ -31,21 +31,15 @@ h5 {
 
 /* Recent search section */
 .recent-searches > h2 {
-    font-size: 20px;
     margin: 0px;
 }
 
 /* City name */
 h3 {
-    font-size: 40px;
     margin: 10px;
 }
 
 /* Current weather section */
-h4 {
-    font-size: 25px;
-}
-
 .current-weather {
     padding: 10px;
 }
@@ -55,15 +49,12 @@ h4 {
 }
 
 /* Forecast section */
-h5 {
-    font-size: 25px;
-}
-
 .forecast-img {
     width: 150px;
     margin: 0 auto;
 }
 
+/* General styling */
 .row {
     --bs-gutter-x: 0;
 }

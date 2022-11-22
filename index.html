@@ -14,7 +14,7 @@
 </head>
 <body>
     <header>
-        <h1>The Weather Dashboard</h1>
+        <h1 class="fs-1">The Weather Dashboard</h1>
     </header>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light search-bar-shadow">
@@ -27,22 +27,24 @@
     </nav>
 
     <section class="recent-searches">
-        <h2>Recent Searches:</h2>
+        <h2 class="fs-5">Recent Searches:</h2>
         <div class="search-history"></div>
     </section>
 
-    <h3 id="city-name">City Name</h3>
+    <h3 id="city-name" class="fs-1">City Name</h3>
 
     <section class="current-weather box-style">
-        <h4>Current Weather Report: <span id="current-date"></span></h4>
-        <div class="row">
-            <img id="day0img" class="curr-weath-img" src="" alt="current weather image">
-            <p></p>
+        <h4 class="fs-3">Current Weather Report: <span id="current-date"></span></h4>
+        <div class="row align-items-center">
+            <img id="day0img" class="curr-weath-img col-3" src="" alt="current weather image">
+            <p class="col-3 text-center fs-5">Temperature: </p>
+            <p class="col-3 text-center fs-5">Humidity: </p>
+            <p class="col-3 text-center fs-5">Wind: </p>
         </div>
     </section>
 
     <section id="forecast">
-        <h5>5-Day Forecast</h5>
+        <h5 class="fs-3">5-Day Forecast</h5>
 
         <div class="row justify-content-around">
             <div class="card my-2 box-style" style="width: 18rem;">
