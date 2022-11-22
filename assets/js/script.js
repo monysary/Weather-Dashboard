@@ -18,6 +18,10 @@ function fetchData() {
     // Fetch current weather data
     fetch(currentWeatherUrl)
         .then(function(response) {
+            if (response.status != 200) {
+                document.querySelector("#city-name").textContent = "CITY NOT FOUND, PLEASE TRY AGAIN";
+                return
+            }
             return response.json();
         })
         .then(function(data) {
