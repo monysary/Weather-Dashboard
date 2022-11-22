@@ -32,6 +32,11 @@ fetch(currentWeatherUrl)
         iconID = data.weather[0].icon
         weatherIconUrl = "http://openweathermap.org/img/wn/" + iconID + "@2x.png";
         document.querySelector("#day0img").setAttribute("src", weatherIconUrl)
+
+        // Fetch temperature, humidity, and wind data
+        document.querySelector("#temperature").textContent = data.main.temp
+        document.querySelector("#humidity").textContent = data.main.humidity
+        document.querySelector("#wind").textContent = data.wind.speed
     })
 
 // Fetch 5-day forecast weather data
