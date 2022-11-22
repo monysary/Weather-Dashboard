@@ -21,6 +21,9 @@ fetch(currentWeatherUrl)
     })
     .then(function(data) {
         console.log(data);
+        // Fetch current city
+        document.querySelector("#city-name").textContent = data.name
+        
         // Fetch current date
         unixTimestamp = data.dt
         document.querySelector("#current-date").textContent = day + ", " + month + " " + date + ", " + year
