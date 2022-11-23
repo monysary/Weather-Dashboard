@@ -73,9 +73,6 @@ h3 {
 
 .searched {
     width: auto;
-    padding: 5px 10px;
     margin: 5px 10px 0px 0px;
-    background-color: grey;
-    color: white;
-    border-radius: 17px;
+    border-radius: 20px;
 }

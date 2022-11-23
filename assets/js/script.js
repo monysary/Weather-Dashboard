@@ -7,14 +7,14 @@ fetchData()
 
 // Variables for DOM manipulation
 var searchHistory = document.querySelector("#search-history");
-var citySearched
+var citySearched;
 if (localStorage.getItem("cities") !== null) {
     citySearched = JSON.parse(localStorage.getItem("cities"));
     pullSearch();
 } else {
     citySearched = [];
 }
-console.log(citySearched);
+var recentCities = document.querySelector(".searched");
 
 // Eventlistener for input field when searching city
 document.addEventListener("submit", function(event) {
@@ -28,7 +28,6 @@ document.addEventListener("submit", function(event) {
 
     // Save  city into local storage
     pushSearch();
-    console.log(citySearched);
 
     // Pull saved city and append to Recent Searches
     pullSearch();
@@ -37,6 +36,13 @@ document.addEventListener("submit", function(event) {
     document.querySelector("#search-field").value = "";
 })
 
+// EventListener for displaying weather data from recent searches
+searchHistory.addEventListener("click", function(event) {
+    cityName = event.target.textContent;
+    currentWeatherUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + ",us&appid=" + APIkey + "&units=imperial";
+    forecastUrl = "http://api.openweathermap.org/data/2.5/forecast?q=" + cityName + ",us&appid=" + APIkey + "&units=imperial";
+    fetchData();
+})
 
 // Function for pushing searched city into local storage
 function pushSearch() {
@@ -48,8 +54,8 @@ function pushSearch() {
 function pullSearch() {
     searchHistory.innerHTML = "";
     for (var i = 0; i < citySearched.length; i++){
-        var element = document.createElement("p")
-        element.setAttribute("class", "searched");
+        var element = document.createElement("button")
+        element.setAttribute("class", "btn btn-secondary searched");
         element.textContent = citySearched[i];
         searchHistory.append(element);
     }
