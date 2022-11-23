@@ -8,13 +8,14 @@ fetchData()
 // Variables for DOM manipulation
 var searchHistory = document.querySelector("#search-history");
 var citySearched;
+
+// Checks if there are recent city searches stored in local storage
 if (localStorage.getItem("cities") !== null) {
     citySearched = JSON.parse(localStorage.getItem("cities"));
     pullSearch();
 } else {
     citySearched = [];
 }
-var recentCities = document.querySelector(".searched");
 
 // Eventlistener for input field when searching city
 document.addEventListener("submit", function(event) {
@@ -36,17 +37,20 @@ document.addEventListener("submit", function(event) {
     document.querySelector("#search-field").value = "";
 })
 
-// Eventlistener for displaying weather data from recent searches
+// Eventlistener for displaying weather data from recent searches or clear the specific city from recent searches
 searchHistory.addEventListener("click", function(event) {
-    console.log(event);
-    cityName = event.target.textContent;
-    currentWeatherUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + ",us&appid=" + APIkey + "&units=imperial";
-    forecastUrl = "http://api.openweathermap.org/data/2.5/forecast?q=" + cityName + ",us&appid=" + APIkey + "&units=imperial";
-    fetchData();
+    if (event.target.textContent === "") {
+        var cityIndex = citySearched.indexOf(event.target.parentElement.textContent)
+        var newArr = citySearched.splice(cityIndex, 1);
+        localStorage.setItem("cities", JSON.stringify(citySearched));
+        event.target.parentElement.remove();
+    } else {
+        cityName = event.target.textContent;
+        currentWeatherUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + ",us&appid=" + APIkey + "&units=imperial";
+        forecastUrl = "http://api.openweathermap.org/data/2.5/forecast?q=" + cityName + ",us&appid=" + APIkey + "&units=imperial";
+        fetchData();
+    }
 })
-
-// Eventlistener for removing city from Recent Searches
-
 
 // Function for pushing searched city into local storage
 function pushSearch() {
