@@ -71,7 +71,6 @@ function pullSearch() {
         var closeBtn = document.createElement("button");
         closeBtn.setAttribute("class", "btn-close btn-close-white");
         cityBtn.append(closeBtn);
-        
     }
 }
 

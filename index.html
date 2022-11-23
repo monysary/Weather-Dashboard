@@ -19,7 +19,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light search-bar-shadow">
         <div class="navbar-collapse justify-content-center" id="navbarSupportedContent">
-            <form class="d-flex flex-grow-1 px-5">
+            <form class="d-flex flex-grow-1 search-bar">
                 <input id="search-field" class="form-control me-2" type="search" placeholder="Search any city in the US" aria-label="Search">
                 <button class="btn btn-info button-padding" type="submit">Search</button>
             </form>
@@ -28,9 +28,7 @@
 
     <section class="recent-searches">
         <h2 class="fs-5">Recent Searches:</h2>
-        <div id="search-history" class="row align-items-center">
-
-        </div>
+        <div id="search-history" class="row align-items-center"></div>
     </section>
 
     <h3 id="city-name" class="fs-1">City Name</h3>
@@ -38,10 +36,10 @@
     <section class="current-weather box-style">
         <h4 class="fs-3">Current Weather Report: <span id="current-date"></span></h4>
         <div class="row align-items-center">
-            <img id="day0img" class="curr-weath-img col-3" src="" alt="current weather image">
-            <p class="col-3 text-center fs-5">Temperature: <span id="temperature"></span>°F</p>
-            <p class="col-3 text-center fs-5">Humidity: <span id="humidity"></span>%</p>
-            <p class="col-3 text-center fs-5">Wind: <span id="wind"></span> mph</p>
+            <img id="day0img" class="col-12 col-md-3 col-lg-3 curr-weath-img" src="" alt="current weather image">
+            <p class="col-12 col-md-3 col-lg-3 text-center fs-5">Temperature: <span id="temperature"></span>°F</p>
+            <p class="col-12 col-md-3 col-lg-3 text-center fs-5">Humidity: <span id="humidity"></span>%</p>
+            <p class="col-12 col-md-3 col-lg-3 text-center fs-5">Wind: <span id="wind"></span> mph</p>
         </div>
     </section>
 
